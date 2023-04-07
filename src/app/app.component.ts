@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testproy';
+
+  constructor(){
+    console.log("hi");
+  }
+
+  //arrow functions
+  // const getName = (name:string , lastName:sting) => lastName;
+
 }
