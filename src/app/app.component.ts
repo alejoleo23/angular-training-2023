@@ -10,6 +10,8 @@ export class AppComponent {
 
   constructor(){
     console.log("hi");
+    //arrow functions
+    // const getName = (name:string , lastName:sting) => lastName;
     
     //operador map :genera un nuevo array
     const auxMap = [1,2,3,4,5].map(num => num*2);
@@ -55,9 +57,59 @@ export class AppComponent {
     //- recibe cadena y separa en array
     const auxSplit = "hola,mundo,test".split(",");
     console.log("auxSplit: ",auxSplit);
+
+    //operador splice
+    //- edita el array quitando un elemento de una posicion indicada
+    const A = ['a','b','c','d','e'];
+    const auxSplice = A.splice(1,1);
+    console.log("splice: ",A,auxSplice);
+
+    //operador reduce
+    const auxReduce = [1,2,3,4,5].reduce((prev,value,index)=>prev + value,0);
+    console.log("auxReduce: ",auxReduce);
+
+    //JSON operator
+    const auxJSON = {
+      id: 1,
+      name: "Axl",
+      lastName: "Santos"
+    };
+
+    //ENTRIES, KEYS, VALUES
+    const auxEntries = Object.entries(auxJSON);
+    console.log(auxEntries);
+
+    const auxKeys = Object.keys(auxJSON);
+    console.log(auxKeys);
+
+    const auxValues = Object.values(auxJSON);
+    console.log(auxValues);
+
+    //****TYPESCRIPT
+    //CONST Y LET
+    //const se da valor y ya no cambia al asignar de nuevo
+    //let puede usarse el mismo nombre de variable en diferente entorno
+    for(let i=1;i<=3;i++){
+      //console.log("index: ",i);
+    }
+    for(let i=1;i<=3;i++){
+      //console.log("index: ",i);
+    }
+    for(let i=1;i<=3;i++){
+      //console.log("index: ",i);
+    }
+
+    //SPREAD OPERATOR, REST OPERATOR
+    const b =[1,2,3,4,5];
+    const c =[...b,6,7,8,9,10];
+    console.log()
+
+    this.getREST(1,2,3,"hola");
   }
 
-  //arrow functions
-  // const getName = (name:string , lastName:sting) => lastName;
+  getREST(...params:any[]){
+    console.log("REST: ",params);
+  }
+  
 
 }
