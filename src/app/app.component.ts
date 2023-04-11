@@ -77,13 +77,13 @@ export class AppComponent {
 
     //ENTRIES, KEYS, VALUES
     const auxEntries = Object.entries(auxJSON);
-    console.log(auxEntries);
+    console.log("auxEntries: ",auxEntries);
 
     const auxKeys = Object.keys(auxJSON);
-    console.log(auxKeys);
+    console.log("auxKeys: ",auxKeys);
 
     const auxValues = Object.values(auxJSON);
-    console.log(auxValues);
+    console.log("auxValues: ",auxValues);
 
     //****TYPESCRIPT
     //CONST Y LET
@@ -102,14 +102,51 @@ export class AppComponent {
     //SPREAD OPERATOR, REST OPERATOR
     const b =[1,2,3,4,5];
     const c =[...b,6,7,8,9,10];
-    console.log()
+    console.log("c: ",c);
 
     this.getREST(1,2,3,"hola");
+
+    //DESESTRUCUTURAR UN JSON
+    //- funciona tanto con json y con arrays
+    const person = {
+      id: 1,
+      name: "Pablo",
+      country: {
+        idCountry: 1,
+        cod: "CLP"
+      }
+    };
+    const {country} = person;
+    console.log("country: ",country);
+
+    //PRACTICANDO CON LOS OPERADORES VISTOS
+    const data = {
+      0: {
+        id: 1,
+        name: "juan",
+        age: 24
+      },
+      1: {
+          id: 2,
+          name: "maria",
+          age: 10
+      }
+    };
+    //convertir a array y sumar las edades
+    const resp = Object.values(data).reduce((prev,value)=> prev + value.age,0);
+    console.log("resp: ",resp);
+    //convertir a un array filtrar las personas mayores a 10m,mostrar solo ids
+    const resp1 = Object.values(data).filter(p => p.age>10).map(p => p.id);
+    console.log("resp1: ",resp1);
+
+    
+
+
   }
 
+  //REST OPERATOR
   getREST(...params:any[]){
     console.log("REST: ",params);
   }
-  
 
 }
